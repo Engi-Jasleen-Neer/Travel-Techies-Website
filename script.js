@@ -1,171 +1,89 @@
-/*const reviews = [
-     {
-       text: "The trip was incredible! Everything was organized perfectly, and I had the best experience traveling through Switzerland.",
-       name: "Emily Johnson",
-       location: "United States",
-       photo: "img1.jpg"
-     },
-     {
-       text: "Our Bali vacation was an absolute dream. From the beaches to the food, everything was perfect!",
-       name: "Rajiv Mehra",
-       location: "India",
-       photo: "img2.jpg"
-     },
-     {
-       text: "Thank you for planning our Paris honeymoon! The hotel, tours, and food recommendations were spot on.",
-       name: "Sophia Garcia",
-       location: "Spain",
-       photo: "img3.jpg"
-     },
-     {
-       text: "Exploring New Zealand was a lifetime experience. The tour was well-structured, and the guides were amazing!",
-       name: "Oliver Smith",
-       location: "Australia",
-       photo: "img4.jpg"
-     },
-     {
-       text: "Our family trip to Japan was smooth and hassle-free. The cherry blossom tour was just stunning!",
-       name: "Alicia Tan",
-       location: "Singapore",
-       photo: "img5.jpg"
-     }
-   ];
-  
-   const reviewText = document.getElementById('review-text');
-   const clientName = document.getElementById('client-name');
-   const clientLocation = document.getElementById('client-location');
-   const photos = document.querySelectorAll('.client-photo');
-   const leftArrow = document.querySelector('.left-arrow');
-   const rightArrow = document.querySelector('.right-arrow');
-  
-   let currentIndex = 0;
-  
-   // Function to update the review content
-   function updateReview() {
-     const review = reviews[currentIndex];
-     reviewText.textContent = review.text;
-     clientName.textContent = review.name;
-     clientLocation.textContent = review.location;
-  
-     // Scale photo based on current index
-     photos.forEach((photo, index) => {
-       photo.style.transform = index === currentIndex ? 'scale(1.5)' : 'scale(1)';
-     });
-   }
-  
-   // Event listeners for arrows
-   leftArrow.addEventListener('click', () => {
-     currentIndex = (currentIndex > 0) ? currentIndex - 1 : reviews.length - 1;
-     updateReview();
-   });
-  
-   rightArrow.addEventListener('click', () => {
-     currentIndex = (currentIndex < reviews.length - 1) ? currentIndex + 1 : 0;
-     updateReview();
-   });
-  
-   // Initial setup
-   updateReview();
-  */
-  //Smooth scroll functionality
-  document.querySelectorAll('.scroll-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-      event.preventDefault();
-      const targetId = this.getAttribute("href");
-      const targetSection = document.querySelector(targetId);
-  
-      targetSection.scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-  
-  /*
-  // Profile hover effect
-  const profiles = document.querySelectorAll('.profile');
-  
-  profiles.forEach((profile) => {
-    profile.addEventListener('mouseenter', () => {
-      const newText = profile.querySelector('.hover-content p');
-      newText.innerText = "We offer customized plans just for you!";
-    });
-  
-    profile.addEventListener('mouseleave', () => {
-      const newText = profile.querySelector('.hover-content p');
-      newText.innerText = "Explore thrilling adventures across the globe with expert guides and immersive experiences.";
-    });
-  });
-  
+// Get elements
+const daysInput = document.getElementById('days');
+const totalCostSpan = document.getElementById('total-cost');
+const bookBtn = document.getElementById('book-btn');
+const successMsg = document.getElementById('success-msg');
 
+// Price per day
+const pricePerDay = 1200;
 
-const reviews = [
-  // Reviews array remains the same
-];
-
-// Query selectors for review display
-const reviewText = document.getElementById('review-text');
-const clientName = document.getElementById('client-name');
-const clientLocation = document.getElementById('client-location');
-const photos = document.querySelectorAll('.client-photo');
-const leftArrow = document.querySelector('.left-arrow');
-const rightArrow = document.querySelector('.right-arrow');
-
-// Index to keep track of current review
-let currentIndex = 0;
-
-// Function to update the review content
-function updateReview() {
-  const review = reviews[currentIndex];
-  reviewText.textContent = review.text;
-  clientName.textContent = review.name;
-  clientLocation.textContent = review.location;
-
-  // Apply scaling effect to current photo
-  photos.forEach((photo, index) => {
-    photo.style.transform = index === currentIndex ? 'scale(1.5)' : 'scale(1)';
-  });
+// Function to update the total cost
+function updateTotalCost() {
+    const days = parseInt(daysInput.value) || 1;
+    const totalCost = days * pricePerDay;
+    totalCostSpan.textContent = totalCost;
 }
 
-// Event listeners for arrows
-leftArrow.addEventListener('click', () => {
-  currentIndex = (currentIndex > 0) ? currentIndex - 1 : reviews.length - 1;
-  updateReview();
+// Event listener for input change
+daysInput.addEventListener('input', updateTotalCost);
+
+// Event listener for booking button
+bookBtn.addEventListener('click', function() {
+    // Save booking data (this will now send data to the backend)
+    saveBooking();
 });
 
-rightArrow.addEventListener('click', () => {
-  currentIndex = (currentIndex < reviews.length - 1) ? currentIndex + 1 : 0;
-  updateReview();
-});
+// Function to save booking data
+function saveBooking() {
+    const bookingData = {
+        location: document.getElementById('location').value,
+        guide: document.getElementById('guide').value,
+        days: parseInt(daysInput.value),
+        totalCost: parseInt(totalCostSpan.textContent)
+    };
 
-// Smooth scroll functionality
-document.querySelectorAll('.scroll-link').forEach(link => {
-  link.addEventListener('click', function(event) {
-    event.preventDefault();
-    const targetId = this.getAttribute("href");
-    const targetSection = document.querySelector(targetId);
+    // Log the data to make sure it's correct (you can remove this once you've tested it)
+    console.log("Booking data:", bookingData);
+    console.log(JSON.stringify(bookingData));
 
-    targetSection.scrollIntoView({
-      behavior: 'smooth'
+    // // Send the booking data to the backend API
+    // fetch('http://localhost:3000/api/book', {  // Replace with your actual backend API URL
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json',
+    //         'Access-Control-Allow-Origin':'*'
+    //     },
+    //      bookingData
+    // })
+    // .then(response =>{console.log("hello"), response.json()})
+    // .then(data => {
+    //     console.log("Booking saved:", data);
+        
+    //     // Show success message
+    //     successMsg.style.display = 'block';
+
+    //     // Clear form inputs
+    //     document.getElementById('location').value = '';
+    //     document.getElementById('guide').value = '';
+    //     daysInput.value = '';
+    //     totalCostSpan.textContent = '0';
+    // })
+    // .catch((error) => {
+    //     console.error("Error saving booking:", error);
+    // });
+
+    fetch('http://localhost:3000/api/book', { // Replace with your API URL
+        mode: 'no-cors',
+
+        method: 'POST', // HTTP method
+        headers: {
+            'Content-Type': 'application/json', // Specifies that we're sending JSON data
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin':'*'
+        },
+        body:bookingData  // Convert JavaScript object to JSON string
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json(); // Parse the JSON response
+    })
+    .then(data => {
+        console.log('Booking saved successfully:', data);
+        // Handle success, update UI if needed
+    })
+    .catch(error => {
+        console.error('Error saving booking:', error); // Handle error
     });
-  });
-});
-
-// Profile hover effect
-const profiles = document.querySelectorAll('.profile');
-
-profiles.forEach((profile) => {
-  profile.addEventListener('mouseenter', () => {
-    const newText = profile.querySelector('.hover-content p');
-    newText.innerText = "We offer customized plans just for you!";
-  });
-
-  profile.addEventListener('mouseleave', () => {
-    const newText = profile.querySelector('.hover-content p');
-    newText.innerText = "Explore thrilling adventures across the globe with expert guides and immersive experiences.";
-  });
-});
-
-// Initialize the first review
-updateReview();
-*/
-  
+}
