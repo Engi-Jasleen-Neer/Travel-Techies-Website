@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Techies</title>
     <link rel="stylesheet" href="index.css">
+    <script defer src="script.js"></script>
+    <script defer src="review.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
     
     
 </head>
@@ -14,13 +16,14 @@
 
 <header>
     <img src="traveltechieslogo.png" alt="Travel Techies Logo">
-    <nav>
-        <a href="home.html">Home</a>
-        <a href="about.html">About Us</a>
-        <a href="services.html">Services</a>
-        <a href="packages.html">Packages</a>
-        <a href="blog.html">Blog</a>
-        <a href="contacts.html">Contacts</a>
+    <nav class="navbar">
+        <a href="home.html" class="scroll-link">Home</a>
+        <a href=".header" class="scroll-link">About Us</a>
+        <a href=".services-section" class="scroll-link">Services</a>
+        <a href="packages.html" class="scroll-link">Packages</a>
+        <a href="blog.html" class="scroll-link">Blog</a>
+        <a href=".footer" class="scroll-link">Contacts</a>
+        <a href="signin.html">Sign In</a> 
     </nav>
 </header>
 
@@ -33,10 +36,10 @@
     
         <div class="search-bar">
             <input type="text" placeholder="Location">
-            <input type="" placeholder="Check-in">
-            <input type="" placeholder="Check-out">
+            <input type="number" placeholder="no of days">
+            <!-- <input type="" placeholder="Check-out"> -->
             <input type="number" placeholder="Guests">
-            <button>Search</button>
+            <button onclick="window.location.href='package.html'">Search</button>
             <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
         </div>
     </div>
@@ -70,9 +73,9 @@
         <!-- Tour Plan -->
         <div class="service-card">
             <img src="completed-task.png" alt="Tour Plan">
-            <h3>Personalized Tour Plan</h3>
-            <p>Your Trip, Your Way – Perfectly Planned!</p>
-            <a href="tour-plan.html">Learn More</a>
+            <h3>Custom Tour Plan</h3>
+            <p>Your Trip,Your Way–Perfectly Planned!</p>
+            <a href="package.html">Learn More</a>
         </div>
 
         <!-- Ticket Booking -->
@@ -104,7 +107,9 @@
     </div>
 
     <div class="cards">
-        <div class="card">
+         
+         <div class="card">
+            
             <img src="lotustemple.jpg" alt="Lotus temple">
             <h3>lotus temple</h3>
             <!-- <p class="price">$880</p> -->
@@ -112,7 +117,8 @@
                 <span>Delhi, India</span>
                 <span>4.2 stars</span>
             </div>
-        </div>
+            
+         </div>
         <div class="card">
             <img src="deer park.jpg" alt="Deer Park">
             <h3>Deer Park</h3>
@@ -147,33 +153,45 @@
     <h1>Explore with Locals</h1>
     <p>Find a local guide to enhance your experience and explore the vibrant culture and heritage around you.</p>
 
-    <div class="profiles">
+    <div class="profiles-container">
         <div class="profile">
-            <img src="chaman.png" alt="chaman" class="profile-img">
-            <h3>Chirag</h3>
-            <p>Cuisine Expert</p>
+          <img src="profile1.png" alt="Profile 1"></img>
+          <h3 class="profile-title">Rohini</h3>
+          <p class="profile-description">Plan exciting tours with us!</p>
+          <div class="hover-content">
+            <p>Explore thrilling adventures across the globe with expert guides and immersive experiences.</p>
+          </div>
         </div>
+    
         <div class="profile">
-            <img src="ming li.png" alt="Ming Li" class="profile-img">
-            <h3>Roshni</h3>
-            <p>Expert</p>
+            <img src="profile2.png" alt="Profile 2"></img>
+          <h3 class="profile-title">Pooja</h3>
+          <p class="profile-description">Experience the best in luxury!</p>
+          <div class="hover-content">
+            <p>Enjoy luxury stays and experiences in exotic locations with world-class amenities.   </p>
+          </div>
         </div>
+    
         <div class="profile">
-            <img src="raju.png" alt="Raju" class="profile-img">
-            <h3>Dharamveer</h3>
-            <p>Discoverer</p>
+            <img src="raju.png" alt="Profile 3"></img>
+          <h3 class="profile-title">Raju</h3>
+          <p class="profile-description">Relax on stunning beaches!</p>
+          <div class="hover-content">
+            <p>Relax on pristine beaches with crystal-clear waters, perfect sunsets, and soothing breezes.</p>
+          </div>
         </div>
+
         <div class="profile">
-            <img src="bc.png" alt="Deepali" class="profile-img">
-            <h3>Kajal</h3>
-            <p>Foodie</p>
-        </div>
-        <div class="profile">
-            <img src="suraj.png" alt="Suraj" class="profile-img">
-            <h3>Jethalal</h3>
-            <p>Expert</p>
-        </div>
-    </div>
+            <img src="mohini.png" alt="Profile 4"></img>
+            <h3 class="profile-title">Mohini</h3>
+            <p class="profile-description">Explorer</p>
+            <div class="hover-content">
+              <p>Relax on pristine beaches with crystal-clear waters, perfect sunsets, and soothing breezes.</p>
+            </div>
+          </div>
+      </div>
+    
+      <script src="script.js"></script>
 
     <p class="welcome-text">
         Welcome to Our "Explore with Locals" Page! Embark on a journey within our community tab, where you can connect with locals eager to share their insider knowledge and unique perspectives. Connect with knowledgeable locals who offer unique insights, guided tours, and authentic experiences of the tourist trail.
@@ -241,45 +259,37 @@
     </div>
 </div>
 
-<div class="review-section">
+<div class="review-container-wrapper">
     <div class="review-container">
-        <h1>Our Client's Say about us</h1>
+      <h2>Our Client's Say about us</h2>
+      <p class="review-text" id="review-text">
+        "The trip was incredible! Everything was organized perfectly, and I had the best experience traveling through Switzerland."
+      </p>
+      <div class="rating">
+        <span>⭐⭐⭐⭐⭐</span>
+      </div>
+      <h3 class="client-name" id="client-name">Emily Johnson</h3>
+      <p class="client-location" id="client-location">United States</p>
 
-        <div class="review-content">
-            <p class="review-text">
-                I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born. 
-                I will give you a complete account of the system and expound the teachings of the truth, 
-                the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself.
-            </p>
-
-            <div class="review-profile">
-                <!-- <img src="profile1.jpg" alt="Customer" class="profile-pic"> -->
-                <div class="customer-info">
-                    <div class="stars">⭐⭐⭐⭐⭐</div>
-                    <h2>Ricky Marget</h2>
-                    <p>Switzerland</p>
-                    
-                </div>
-            </div>
+      <div class="carousel">
+        <button class="arrow left-arrow"><i class="fa fa-chevron-left"></i></button>
+        <div class="client-photos-wrapper">
+          <div class="client-photos" id="client-photos">
+            <img src="profile1.png" class="client-photo" alt="Client 1">
+            <img src="profile2.png" class="client-photo" alt="Client 2">
+            <img src="ming li.png" class="client-photo" alt="Client 3">
+            <img src="chaman.png" class="client-photo" alt="Client 4">
+            <img src="bc.png" class="client-photo" alt="Client 5">
+          </div>
         </div>
+        <button class="arrow right-arrow"><i class="fa fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </div>
 
-        
+  <script defer src="script.js"></script>
 
-        <!-- Profile thumbnails -->
-        <div class="profile-thumbnails">
-            <img src="profile1.png" alt="Profile 1" class="thumbnail">
-            <img src="profile2.png" alt="Profile 2" class="thumbnail">
-            <img src="ming li.png" alt="Profile 3" class="thumbnail active">
-            <img src="chaman.png" alt="Profile 4" class="thumbnail">
-            <img src="bc.png" alt="Profile 4" class="thumbnail">
-        </div>
-        
-        <!-- Arrows for navigation -->
-        <div class="arrow-buttons">
-            <button class="arrow left-arrow">&#9664;</button>
-            <button class="arrow right-arrow">&#9654;</button>
-        </div>
-</div>
+
 
 <div class="footer">
     <div class="company-info">
@@ -287,16 +297,16 @@
         <p>+91 98912 25456</p>
         <p><a href="mailto:TravelTech@gmail.com">TravelTech@gmail.com</a></p>
         <p>Delhi, India</p>
-        <!-- <div class="social-icons">
-            <! <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a> -->
-            <!-- <i class="fa-brands fa-instagram"></i>
+        <div class="social-icons">
+            <!-- <a href="#"><img src="instagram.png" alt="Instagram" class="social-icon"></a> --> -->
+            <i class="fa-brands fa-instagram"></i>
             <i class="fa-brands fa-twitter"></i> -->
-            <!-- <a href="#"><img src="twitter.png" alt="Twitter" class="social-icon"></a>
-            <a href="#"><img src="youtube.png" alt="YouTube" class="social-icon"></a>
-            <a href="#"><img src="facebook.png" alt="Facebook" class="social-icon"></a> -->
-            <!-- <i class="fa-brands fa-youtube"></i>
+             <!-- <a href="#"><img src="twitter.png" alt="Twitter" class="social-icon"></a> -->
+            <!-- <a href="#"><img src="youtube.png" alt="YouTube" class="social-icon"></a> -->
+            <!-- <a href="#"><img src="facebook.png" alt="Facebook" class="social-icon"></a> --> -->
+            <i class="fa-brands fa-youtube"></i> -->
             <i class="fa-brands fa-facebook"></i> -->
-        <!-- </div> --> 
+         </div> 
     </div>
 
     <div class="links">

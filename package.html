@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customized Tourist Plan</title>
+  <link rel="stylesheet" href="pack.css">
+</head>
+<body>
+  <h1>Customized Tourist Plan</h1>
+
+  <!-- Filter Section -->
+  <div class="filter-container">
+    <select id="tripType">
+      <option value="">Select Trip Type</option>
+      <option value="Relaxation">Relaxation Trip</option>
+      <option value="Spiritual">Spiritual Trip</option>
+    </select>
+
+    <select id="city">
+      <option value="">Select City</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Chennai">Chennai</option>
+    </select>
+
+    <button onclick="showPayNowButton()">Generate Plan</button>
+  </div>
+
+  <!-- Pay Now Button (Initially Hidden) -->
+  <div id="payNowContainer" style="display: none; margin-top: 10px; text-align: center;">
+    <button onclick="generatePlan()">Pay Now to Generate Plan</button>
+  </div>
+
+  <!-- Itinerary Section -->
+  <div id="itineraryContainer" style="display:none;">
+    <h2>Your Itinerary</h2>
+    <ul id="itineraryList"></ul>
+
+    <div id="samplePlanContainer" style="margin-top: 20px;">
+      <h3>Sample Plan for the Trip</h3>
+      <ul id="samplePlan"></ul>
+    </div>
+  </div>
+
+  <script src="pack.js"></script>
+</body>
+</html>
